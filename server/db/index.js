@@ -7,8 +7,11 @@ const connection = mysql.createConnection({
   database: 'COWLIST'
 });
 
-connection.query('USE COWLIST', (err, results, fields) => {
-  console.log(results);
+connection.connect((err) => {
+  if (err) {
+    throw err;
+  }
+  console.log('connected as id ' + connection.threadId);
 });
 
 module.exports = connection;
