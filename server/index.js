@@ -17,7 +17,7 @@ app.listen(PORT, () => {
 app.get('/api/cows', (req, res) => {
   get().then((val) => {
     console.log(val);
-    res.send(val);
+    res.json(val);
   })
 });
 

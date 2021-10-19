@@ -1,7 +1,8 @@
 import React from 'react';
 
 var Cows = function(props) {
-  return <h1>Cow1</h1>
+  console.log(props.sam);
+  return <li>{props.cow.cowName}</li>
 }
 
 export default Cows;
