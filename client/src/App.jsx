@@ -1,5 +1,6 @@
 import React from 'react';
 import Parse from '../src/Parse.js';
+import Cows from '../src/Cows.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>Hi</div>
+      <Cows />
     )
   };
 };
