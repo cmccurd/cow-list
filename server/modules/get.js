@@ -11,4 +11,4 @@ var getCowList = () => {
   })
 };
 
-module.exports = getCowList;
+module.exports = getCowList

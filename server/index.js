@@ -1,5 +1,6 @@
 const get = require('./modules/get.js');
 const post = require('./modules/post.js')
+const del = require('./modules/delete.js')
 const path = require('path');
 
 const express = require('express');
@@ -16,7 +17,7 @@ app.listen(PORT, () => {
 
 app.get('/api/cows', (req, res) => {
   get().then((val) => {
-    console.log(val);
+    // console.log(val);
     res.json(val);
   })
 });
@@ -26,3 +27,22 @@ app.post('/api/cows', (req, res) => {
     res.send(val);
   })
 });
+
+// app.delete('/api/cows', (req, res) => {
+//   del(req.body)
+//   .then((response) => {
+//     console.log(response);
+//     res.end();
+//   })
+// })
+
+app.delete('/api/cows', (req, res) => {
+  del(req.body)
+  .then((response) => {
+    // console.log(response);
+    res.status(204).json(response);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+})

@@ -8,6 +8,18 @@ var Parse = {
 
   post: (obj) => {
     return axios.post(server, obj)
+  },
+
+  delete: (obj) => {
+    return axios.delete(server, {
+      data: obj
+    });
+  },
+
+  put: (obj) => {
+    return axios.put(server, {
+      data: obj
+    });
   }
 };
 
