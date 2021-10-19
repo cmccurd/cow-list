@@ -1,4 +1,5 @@
 import React from 'react';
+import Parse from '../src/Parse.js';
 
 class App extends React.Component {
   constructor() {
@@ -6,7 +7,10 @@ class App extends React.Component {
     this.state = {}
   }
   componentDidMount() {
-    console.log('hey')
+    var cc = Parse.get;
+    cc.then(function (response) {
+      console.log(response.data);
+    });
   };
 
 
