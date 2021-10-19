@@ -1,7 +1,8 @@
 import React from 'react';
 import Parse from '../src/Parse.js';
 import Cows from '../src/Cows.jsx';
-import axios from 'axios';
+import Form from '../src/Form.jsx';
+// import axios from 'axios';
 
 class App extends React.Component {
   constructor() {
@@ -9,19 +10,29 @@ class App extends React.Component {
     this.state = {
       cows: [],
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   componentDidMount() {
-    axios.get('http://localhost:3000/api/cows')
+    Parse.get
     .then((response) => {
       this.setState({cows: response.data});
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    Parse.get
+    .then((response) => {
+      this.setState({cows: response.data});
+    });
+  }
 
   render() {
     return (<div>
       <h1>Cow List</h1>
-      <input></input>
+      <Form handleSubmit={this.handleSubmit}/>
       {this.state.cows.map((cow) => <Cows
                                       key={cow.cowId}
                                       cow = {cow}
